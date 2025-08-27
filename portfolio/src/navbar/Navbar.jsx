@@ -1,10 +1,11 @@
 import React from 'react'
+import './Navbar.css'
 
 const Navbar = () => {
     return (
-        <div className='fixed top-0 z-50 bg-white'>
-            <button>About</button>
-            <button>Projects</button>
+        <div className='w-full fixed top-15 z-50 flex justify-end text-sm'>
+            <a href="https://www.linkedin.com/in/jamesducay" target="_blank" className="pr-15 line-link">About</a>
+            <a href="https://www.linkedin.com/in/jamesducay" target="_blank" className="pr-25 line-link">Projects</a>
         </div>
     )
 }
