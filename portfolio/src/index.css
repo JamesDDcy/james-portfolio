@@ -1,5 +1,55 @@
 @import "tailwindcss";
 
+:root {
+  background-color: #000000;
+  font-family: "Outfit", sans-serif;
+  /* font-weight: 300; */
+  font-style: normal;
+  color: #FFFEFC;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.spline-bg {
+  position: absolute;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  inset: 0;
+  top: 25px;
+  left: 540px;
+  transform: scale(1.35);
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  scroll-behavior: smooth;
+}
+
+.fuzzy-overlay {
+  position: fixed;
+  overflow: hidden;
+  inset: -200%;
+  z-index: 0;
+  background-image: url("./assets/img/noise-bg.png");
+  opacity: 15%;
+
+  animation: shift 0.2s linear infinite both;
+}
+
+@keyframes shift {
+  0% {
+    transform: translateX(20%) translateY(20%);
+  }
+
+  100% {
+    transform: translateX(-10%) translateY(-10%);
+  }
+}
+
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

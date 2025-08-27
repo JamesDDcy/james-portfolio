@@ -7,13 +7,14 @@ import Projects from './projects/Projects';
 
 function App() {
   return (
-    <>
+    <div className='relative'>
+      <div className='fuzzy-overlay'></div>
       <Navbar></Navbar>
       <Home></Home>
       <About></About>
       <Experience></Experience>
       <Projects></Projects>
-    </>
+    </div>
   )
 }
 
