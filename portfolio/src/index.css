@@ -26,6 +26,10 @@ body {
 
 ::-webkit-scrollbar {
   width: 0px;
+  /* scroll-behavior: smooth; */
+}
+
+html {
   scroll-behavior: smooth;
 }
 

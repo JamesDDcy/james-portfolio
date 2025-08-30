@@ -5,7 +5,7 @@ import cornerImg from '../assets/img/corner.png';
 const Home = () => {
     return (
 
-        <div className='h-screen relative'>
+        <section className='h-screen relative'>
             <div className='spline-bg pointer-events-none' >
                 <SplineScene />
             </div>
@@ -59,7 +59,7 @@ const Home = () => {
             <div className='absolute bottom-20 left-20 text-sm hover:text-orange-600 transition duration-300'>
                 <a href="https://www.linkedin.com/in/jamesducay" target="_blank">Resume</a>
             </div>
-        </div>
+        </section>
 
 
     )
