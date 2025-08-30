@@ -1,11 +1,21 @@
-import React from 'react'
-import splineGif from '../assets/img/spline-3d.gif';
-
+import { storage } from '../firebase';
+import { ref, getDownloadURL } from 'firebase/storage';
+import { useEffect, useState } from 'react';
 
 export default function SplineScene() {
+    const [imgUrl, setImgUrl] = useState("");
+    // ref - craetes a ponter to a file. It does not contain the file itself or its URL
+    // getDownloadURL retrieves a publicly accessible URL for a file stored in Firebase Storage
+    useEffect(() => {
+        const splineGifRef = ref(storage, "assets/spline-3d.gif");
+        getDownloadURL(splineGifRef)
+            .then((url) => setImgUrl(url))
+            .catch((error) => console.error("Error fetching image URL:", error));
+    }, []);
+
     return (
         <div className='spline-bg'>
-            <img src={splineGif} alt="Spline background" />
+            {imgUrl && <img src={imgUrl} alt="Spline background" />}
         </div>
     );
 }
