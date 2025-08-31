@@ -8,16 +8,12 @@ const About = () => {
     const [imgUrl2, setImgUrl2] = useState("");
 
     useEffect(() => {
-        const profile1 = ref(storage, "assets/profile1.jpg");
-        const profile2 = ref(storage, "assets/profile2.jpg");
+        const profileRefs = [ref(storage, "assets/profile1.jpg"), ref(storage, "assets/profile2.jpg")];
+        Promise.all(profileRefs.map(getDownloadURL)).then(([url1, url2]) => {
+            setImgUrl1(url1);
+            setImgUrl2(url2);
+        }).catch((error) => console.log("Error fetching profile image:", error))
 
-        getDownloadURL(profile1)
-            .then((url) => setImgUrl1(url))
-            .catch((error) => console.log("Error fetching image URL:", error))
-
-        getDownloadURL(profile2)
-            .then((url) => setImgUrl2(url))
-            .catch((error) => console.log("Error fetching image URL:", error))
     }, [])
 
     // zoom effect on profile image
