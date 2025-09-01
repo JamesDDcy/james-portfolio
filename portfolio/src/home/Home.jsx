@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SplineScene from '../components/SplineScene'
 import cornerImg from '../assets/img/corner.png';
+import { getDownloadURL, ref } from 'firebase/storage';
+import { storage } from '../firebase';
 
 const Home = () => {
-    return (
 
+    const [resumeUrl, setResumeUrl] = useState("");
+
+    useEffect(() => {
+        const resumeRef = ref(storage, "assets/resume.pdf")
+        getDownloadURL(resumeRef).then((url) => setResumeUrl(url)).catch((error) => console.log("Error in fetching resume:", error))
+    }, [])
+
+    return (
         <section className='h-screen relative'>
             <div className='spline-bg pointer-events-none' >
                 <SplineScene />
@@ -44,7 +53,7 @@ const Home = () => {
             </div>
 
             <div className='absolute bottom-40 ml-20'>
-                <div className='text-6xl font-bold tracking-wider'>
+                <div className='text-6xl font-bold tracking-wider z-0'>
                     <h1>James Daniel</h1>
                     <h1>Ducay</h1>
                 </div>
@@ -57,7 +66,7 @@ const Home = () => {
 
 
             <div className='absolute bottom-20 left-20 text-sm hover:text-orange-600 transition duration-300'>
-                <a href="https://www.linkedin.com/in/jamesducay" target="_blank">Resume</a>
+                <a href={resumeUrl} target="_blank">Resume</a>
             </div>
         </section>
 
