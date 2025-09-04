@@ -35,7 +35,7 @@ const About = () => {
         <section id="about" className='relative h-screen'>
             <div className='grid grid-cols-2 h-screen content-center'>
                 <div
-                    className='relative grid h-screen w-3/4 overflow-hidden'
+                    className='relative grid h-screen w-3/4 overflow-hidden z-10'
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                 >
@@ -66,9 +66,11 @@ const About = () => {
                 </div>
                 <div className='w-3/4 flex flex-col justify-center'>
                     <h1 className='text-3xl font-bold pb-2'>About me</h1>
-                    <div class="border-t mt-2 w-screen"></div>
-                    <p className='py-6'>I’m a UP Diliman graduate with an enthusiasm for blending <span className='text-orange-600'>art</span> and <span className='text-orange-600'>technology</span>.</p>
-                    <p className='leading-7'>I’m especially drawn to front-end development because it allows me to combine creativity and functionality to create engaging and intuitive user experiences.</p>
+                    <div className="border-t mt-2 w-screen"></div>
+                    <div className='font-extralight'>
+                        <p className='py-6'>I’m a UP Diliman graduate with an enthusiasm for blending <span className='text-orange-600'>art</span> and <span className='text-orange-600'>technology</span>.</p>
+                        <p className='leading-7'>I’m especially drawn to front-end development because it allows me to combine creativity and functionality to create engaging and intuitive user experiences.</p>
+                    </div>
                 </div>
 
             </div>

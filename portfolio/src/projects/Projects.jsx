@@ -2,7 +2,7 @@ import React from 'react'
 
 const Projects = () => {
     return (
-        <div id="projects" className='h-screen bg-green-300'>
+        <div id="projects" className='h-screen'>
             <h1>Featured Projects</h1>
             <p>This will be a grid</p>
         </div>

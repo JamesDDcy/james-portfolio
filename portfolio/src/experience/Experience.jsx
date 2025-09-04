@@ -43,7 +43,7 @@ const Experience = () => {
 
     return (
         <>
-            <div className='h-screen grid justify-items-center relative'>
+            <div className='grid justify-items-center relative'>
                 <div className='absolute z-0 top-52'>
                     {expBackground && <img className='opacity-30' style={{ transition: 'transform 0.5s', transform: `scale(${zoom})` }} src={expBackground} alt="background" />}
                 </div>
