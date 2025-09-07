@@ -1,0 +1,31 @@
+@keyframes fadein-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeout-up {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+.animate-fadein-down {
+    animation: fadein-down 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-fadeout-up {
+    animation: fadeout-up 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
