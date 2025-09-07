@@ -30,7 +30,7 @@ const Projects = () => {
     const projectPairs = chunkArray(sortedProjInfo, 2);
 
     return (
-        <div id="projects" className='h-screen '>
+        <div id="projects">
             <h1 className='w-full text-orange-600 text-8xl font-extralight py-28 ps-5'>Projects</h1>
             <div className='flex flex-col gap-5 mx-5 pb-10 z-10'>
                 {projectPairs.map((pair, rowIdx) => (
