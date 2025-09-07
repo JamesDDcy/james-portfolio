@@ -44,12 +44,15 @@ const Experience = () => {
     return (
         <>
             <div className='grid justify-items-center relative'>
-                <div className='absolute z-0 top-52'>
+                <h1 className='w-full text-orange-600 text-8xl font-extralight py-28 ps-5'>Experience</h1>
+
+
+                <div className='absolute z-[-10] top-52'>
                     {expBackground && <img className='opacity-30' style={{ transition: 'transform 0.5s', transform: `scale(${zoom})` }} src={expBackground} alt="background" />}
                 </div>
+
                 <div className='relative h-full w-4/5 flex flex-col'>
 
-                    <h1 className=' text-orange-600 text-6xl py-28 flex justify-start'>Experience</h1>
                     <div className='grid grid-cols-6 gap-20'>
                         {
                             expYears.map((year) => (
