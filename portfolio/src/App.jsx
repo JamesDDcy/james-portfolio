@@ -5,6 +5,7 @@ import Experience from './experience/Experience';
 import Home from './home/Home';
 import Navbar from './navbar/Navbar';
 import Projects from './projects/Projects';
+import Footer from './components/Footer';
 import React, { useEffect, useState } from 'react';
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
   return (
     <div className='relative'>
       <div className='fuzzy-overlay'></div>
-      <div className="fixed w-full h-0.5 z-50">
+      <div className="fixed w-full h-0.5 z-100">
         <div className="h-full bg-amber-600" style={{ width: `${scrollPercent}%` }}></div>
       </div>
       <Navbar></Navbar>
@@ -33,6 +34,7 @@ function App() {
       <About></About>
       <Experience></Experience>
       <Projects></Projects>
+      <Footer></Footer>
     </div>
   );
 }
