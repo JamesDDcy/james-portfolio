@@ -7,6 +7,7 @@ import Navbar from './navbar/Navbar';
 import Projects from './projects/Projects';
 import Footer from './components/Footer';
 import React, { useEffect, useState } from 'react';
+import HomeButton from './components/HomeButton';
 
 function App() {
   const [scrollPercent, setScrollPercent] = useState(0);
@@ -31,6 +32,7 @@ function App() {
       </div>
       <Navbar></Navbar>
       <Home></Home>
+      <HomeButton></HomeButton>
       <About></About>
       <Experience></Experience>
       <Projects></Projects>
