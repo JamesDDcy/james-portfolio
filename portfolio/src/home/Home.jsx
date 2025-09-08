@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import SplineScene from '../components/SplineScene'
-import cornerImg from '../assets/img/corner.png';
 import { getDownloadURL, ref } from 'firebase/storage';
 import { storage } from '../firebase';
 import SocialsButtons from '../components/SocialsButtons';
@@ -31,11 +30,6 @@ const Home = () => {
                 </div>
                 <p className='pt-7 font-extralight'>Software Developer</p>
             </div>
-
-            <div className='absolute bottom-5 right-15'>
-                <img src={cornerImg} alt="Corner" className='h-40' />
-            </div>
-
 
             <div className='absolute bottom-20 left-20 text-sm hover:text-orange-600 transition duration-300'>
                 <a href={resumeUrl} target="_blank">Resume</a>
