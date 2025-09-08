@@ -32,7 +32,7 @@ const Home = () => {
             </div>
 
             <div className='absolute bottom-20 left-20 text-sm hover:text-orange-600 transition duration-300'>
-                <a href={resumeUrl} target="_blank">Resume</a>
+                <a href={resumeUrl} target="_blank">Résumé</a>
             </div>
         </section>
 
