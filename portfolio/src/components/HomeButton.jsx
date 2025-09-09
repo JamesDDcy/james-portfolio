@@ -22,7 +22,7 @@ const HomeButton = () => {
     return (
         <a className='relative' href='#home'>
             <svg
-                className={`fill-white fixed bottom-15 right-20 z-50 animate-bounce size-10 transition duration-1000 ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                className={`fill-white fixed bottom-15 right-20 z-100 animate-bounce size-10 transition duration-1000 ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
                 data-name="1-Arrow Up"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 32 32"
