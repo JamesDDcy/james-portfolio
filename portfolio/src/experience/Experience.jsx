@@ -44,7 +44,7 @@ const Experience = () => {
 
     return (
         <>
-            <div className='grid justify-items-center relative'>
+            <div className='grid justify-items-center relative pt-15'>
                 <RevealAnimation delay={0.5} width='100%'>
                     <h1 className='w-full text-orange-600 font-extralight text-6xl py-15 sm:text-8xl sm:py-28 ps-5'>Experience</h1>
                 </RevealAnimation>
