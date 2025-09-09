@@ -24,6 +24,25 @@ body {
   transform: scale(1.25);
 }
 
+@media (max-width: 1024px) {
+  .spline-bg {
+    left: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .spline-bg {
+    left: 50px;
+  }
+}
+
+@media (max-width: 640px) {
+  .spline-bg {
+    top: 75px;
+    left: 0;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 0px;
   /* scroll-behavior: smooth; */

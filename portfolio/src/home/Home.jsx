@@ -16,9 +16,9 @@ const Home = () => {
 
     return (
         <section id='home' className='h-screen relative'>
-            {/* <div className='spline-bg pointer-events-none' >
+            <div className='spline-bg pointer-events-none' >
                 <SplineScene />
-            </div> */}
+            </div>
 
             <div className="absolute ml-20 mt-15 z-100">
                 <SocialsButtons></SocialsButtons>
@@ -26,7 +26,7 @@ const Home = () => {
 
             <div className='absolute bottom-40 ml-20'>
                 <RevealAnimation delay={0.25} duration={1}>
-                    <div className='text-6xl font-bold tracking-wider z-0'>
+                    <div className='text-5xl md:text-6xl font-bold tracking-wider z-0'>
                         <h1>James Daniel</h1>
                         <h1>Ducay</h1>
                     </div>
