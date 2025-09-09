@@ -17,8 +17,8 @@ const Navbar = () => {
     }, []);
 
     return (
-        <div className='w-full fixed top-10 z-50 flex justify-end text-sm'>
-            <div className={`flex justify-start w-1/5 py-5 px-15 gap-16 rounded-s-lg transition-all duration-2000 ${blur ? 'backdrop-blur-xs' : ''}`}>
+        <div className='w-full fixed top-10 z-100 flex justify-end text-sm'>
+            <div className={`flex justify-start w-64 xl:w-1/5 py-5 px-15 gap-10 xl:gap-16 rounded-s-lg transition-all duration-2000 ${blur ? 'backdrop-blur-xs' : ''}`}>
                 <RevealAnimation delay={0.5} y={-75}>
                     <a href="#about" className='line-link'>About</a>
                 </RevealAnimation>
