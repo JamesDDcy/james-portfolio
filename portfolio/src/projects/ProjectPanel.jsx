@@ -57,7 +57,7 @@ const ProjectPanel = (prop) => {
                         ))}
                     </Fade>
                 </div>
-                <div className='relative p-5 flex flex-col h-full'>
+                <div className='relative p-5 flex flex-col h-full' style={{ minHeight: 'calc(100vh - 80px)' }}>
                     <div className='flex justify-between'>
                         <h1 className='text-xl font-light'>{prop.title}</h1>
                         <p className='text-sm'>{prop.year}</p>
@@ -65,7 +65,7 @@ const ProjectPanel = (prop) => {
                     <p className='pt-1 font-extralight'>{toolString}</p>
                     <p className='pt-5'>{prop.overview}</p>
                     <ShowDescButton description={prop.description}></ShowDescButton>
-                    <div className='flex flex-col justify-end h-full'>
+                    <div className='flex flex-1 items-end'>
                         <p>{awardString}</p>
                     </div>
                 </div>
