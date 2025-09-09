@@ -35,15 +35,15 @@ const About = () => {
 
     return (
         <section id="about" className='relative h-screen'>
-            <div className='grid grid-cols-2 h-screen content-center'>
+            <div className='grid content-center justify-items-center sm:justify-items-start sm:grid-cols-2 sm:h-screen'>
                 <div
-                    className='relative grid h-screen w-3/4 overflow-hidden z-10'
+                    className='relative grid mt-30 mb-15 mx-auto min-h-[300px] sm:my-0 sm:mx-0 sm:h-screen w-3/4 overflow-hidden z-10'
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                 >
                     {imgUrl2 && (
                         <img
-                            className="object-cover absolute "
+                            className="object-cover absolute w-full h-full"
                             src={imgUrl2}
                             style={{
                                 opacity: isHovered ? 0 : 1,
@@ -55,7 +55,7 @@ const About = () => {
                     )}
                     {imgUrl1 && (
                         <img
-                            className="object-cover absolute"
+                            className="object-cover absolute w-full h-full"
                             src={imgUrl1}
                             style={{
                                 opacity: isHovered ? 1 : 0,
