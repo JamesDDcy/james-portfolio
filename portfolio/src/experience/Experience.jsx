@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { firestore, storage } from '../firebase';
 import ExperiencePanel from './ExperiencePanel'
 import { collection, getDocs } from 'firebase/firestore';
+import RevealAnimation from '../components/RevealAnimation';
 
 const Experience = () => {
     // get background
@@ -44,7 +45,9 @@ const Experience = () => {
     return (
         <>
             <div className='grid justify-items-center relative'>
-                <h1 className='w-full text-orange-600 text-8xl font-extralight py-28 ps-5'>Experience</h1>
+                <RevealAnimation delay={0.5} width='100%'>
+                    <h1 className='w-full text-orange-600 text-8xl font-extralight py-28 ps-5'>Experience</h1>
+                </RevealAnimation>
 
 
                 <div className='absolute z-[-10] top-52'>
@@ -52,38 +55,39 @@ const Experience = () => {
                 </div>
 
                 <div className='relative h-full w-4/5 flex flex-col'>
+                    <RevealAnimation delay={1}>
+                        <div className='grid grid-cols-6 gap-20'>
+                            {
+                                expYears.map((year) => (
+                                    // We need to use React.Fagment to be able to add a key since every element in a .map function should have a key
+                                    // it helps react to efficiently identify and update elements
+                                    <React.Fragment key={year}>
+                                        <div className='col-span-2 flex justify-end items-start'>
+                                            <h1 className='text-9xl font-extralight'>{year}</h1>
+                                        </div>
+                                        <div className='col-span-4 flex flex-col justify-center items-center gap-20'>
+                                            {
+                                                expInfo
+                                                    .filter(exp => {
+                                                        if (!exp.start_date) return false;
+                                                        return exp.start_date.toDate().getFullYear() === year;
+                                                    })
+                                                    .sort((a, b) => b.start_date.toDate() - a.start_date.toDate()) // descending
+                                                    .map((exp) => <ExperiencePanel
+                                                        key={exp.id}
+                                                        logo={exp.logo}
+                                                        company={exp.company}
+                                                        role={exp.role}
+                                                        duration={exp.duration} />
+                                                    )
+                                            }
+                                        </div>
+                                    </React.Fragment>
+                                ))
+                            }
+                        </div>
+                    </RevealAnimation>
 
-                    <div className='grid grid-cols-6 gap-20'>
-                        {
-                            expYears.map((year) => (
-                                // We need to use React.Fagment to be able to add a key since every element in a .map function should have a key
-                                // it helps react to efficiently identify and update elements
-                                <React.Fragment key={year}>
-                                    <div className='col-span-2 flex justify-end items-start'>
-                                        <h1 className='text-9xl font-extralight'>{year}</h1>
-                                    </div>
-                                    <div className='col-span-4 flex flex-col justify-center items-center gap-20'>
-                                        {
-                                            expInfo
-                                                .filter(exp => {
-                                                    if (!exp.start_date) return false;
-                                                    return exp.start_date.toDate().getFullYear() === year;
-                                                })
-                                                .sort((a, b) => b.start_date.toDate() - a.start_date.toDate()) // descending
-                                                .map((exp) => <ExperiencePanel
-                                                    key={exp.id}
-                                                    logo={exp.logo}
-                                                    company={exp.company}
-                                                    role={exp.role}
-                                                    duration={exp.duration} />
-                                                )
-                                        }
-                                    </div>
-                                </React.Fragment>
-                            ))
-                        }
-
-                    </div>
                 </div>
 
             </div>
