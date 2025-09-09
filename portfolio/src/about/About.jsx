@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { storage } from '../firebase';
 import { ref, getDownloadURL } from 'firebase/storage';
+import RevealAnimation from '../components/RevealAnimation';
+import AnimatedLine from '../components/AnimatedLine';
 
 const About = () => {
     // fetch image from db
@@ -65,14 +67,19 @@ const About = () => {
                     )}
                 </div>
                 <div className='w-3/4 flex flex-col justify-center'>
-                    <h1 className='text-3xl font-bold pb-2'>About me</h1>
-                    <div className="border-t mt-2 w-screen"></div>
+                    <RevealAnimation delay={0.25}>
+                        <div className='text-3xl font-bold pb-2'>About me</div>
+                    </RevealAnimation>
+                    <AnimatedLine />
                     <div className='font-extralight'>
-                        <p className='py-6'>I’m a UP Diliman graduate with an enthusiasm for blending <span className='text-orange-600'>art</span> and <span className='text-orange-600'>technology</span>.</p>
-                        <p className='leading-7'>I’m especially drawn to front-end development because it allows me to combine creativity and functionality to create engaging and intuitive user experiences.</p>
+                        <RevealAnimation delay={0.5}>
+                            <p className='py-6'>I’m a UP Diliman graduate with an enthusiasm for blending <span className='text-orange-600'>art</span> and <span className='text-orange-600'>technology</span>.</p>
+                        </RevealAnimation>
+                        <RevealAnimation delay={0.75}>
+                            <p className='leading-7'>I’m especially drawn to front-end development because it allows me to combine creativity and functionality to create engaging and intuitive user experiences.</p>
+                        </RevealAnimation>
                     </div>
                 </div>
-
             </div>
         </section>
     )
