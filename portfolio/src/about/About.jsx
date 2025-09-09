@@ -1,10 +1,87 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { storage } from '../firebase';
+import { ref, getDownloadURL } from 'firebase/storage';
+import RevealAnimation from '../components/RevealAnimation';
+import AnimatedLine from '../components/AnimatedLine';
 
 const About = () => {
+    // fetch image from db
+    const [imgUrl1, setImgUrl1] = useState("");
+    const [imgUrl2, setImgUrl2] = useState("");
+
+    useEffect(() => {
+        const profileRefs = [ref(storage, "assets/profile1.jpg"), ref(storage, "assets/profile2.jpg")];
+        Promise.all(profileRefs.map(getDownloadURL)).then(([url1, url2]) => {
+            setImgUrl1(url1);
+            setImgUrl2(url2);
+        }).catch((error) => console.log("Error fetching profile image:", error))
+
+    }, [])
+
+    // zoom effect on profile image
+    const [zoom, setZoom] = useState(1);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const newZoom = 1 + window.scrollY / 5000;
+            setZoom(Math.min(newZoom, 1.25));
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    // hover effect on profile image
+    const [isHovered, setIsHovered] = useState(false);
+
     return (
-        <div className='h-screen bg-amber-300'>
-            About me
-        </div>
+        <section id="about" className='relative h-screen'>
+            <div className='grid content-center justify-items-center sm:justify-items-start sm:grid-cols-2 sm:h-screen'>
+                <div
+                    className='relative grid mt-30 mb-15 mx-auto min-h-[300px] sm:my-0 sm:mx-0 sm:h-screen w-3/4 overflow-hidden z-10'
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                >
+                    {imgUrl2 && (
+                        <img
+                            className="object-cover absolute w-full h-full"
+                            src={imgUrl2}
+                            style={{
+                                opacity: isHovered ? 0 : 1,
+                                transition: 'opacity 0.5s, transform 0.5s',
+                                transform: `scale(${zoom})`,
+                            }}
+                            alt="Profile image"
+                        />
+                    )}
+                    {imgUrl1 && (
+                        <img
+                            className="object-cover absolute w-full h-full"
+                            src={imgUrl1}
+                            style={{
+                                opacity: isHovered ? 1 : 0,
+                                transition: 'opacity 0.5s, transform 0.5s',
+                                transform: `scale(${zoom})`,
+                            }}
+                            alt="Profile image hover"
+                        />
+                    )}
+                </div>
+                <div className='w-3/4 flex flex-col justify-center'>
+                    <RevealAnimation delay={0.25}>
+                        <div className='text-3xl font-bold pb-2'>About me</div>
+                    </RevealAnimation>
+                    <AnimatedLine />
+                    <div className='font-extralight'>
+                        <RevealAnimation delay={0.5}>
+                            <p className='py-6'>I’m a UP Diliman graduate with an enthusiasm for blending <span className='text-orange-600'>art</span> and <span className='text-orange-600'>technology</span>.</p>
+                        </RevealAnimation>
+                        <RevealAnimation delay={0.75}>
+                            <p className='leading-7'>I’m especially drawn to front-end development because it allows me to combine creativity and functionality to create engaging and intuitive user experiences.</p>
+                        </RevealAnimation>
+                    </div>
+                </div>
+            </div>
+        </section>
     )
 }
 
