@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ProjectPanel from './ProjectPanel'
 import { collection, getDocs } from 'firebase/firestore';
 import { firestore } from '../firebase';
+import RevealAnimation from '../components/RevealAnimation';
 
 const Projects = () => {
     // get project information
@@ -31,7 +32,9 @@ const Projects = () => {
 
     return (
         <div id="projects">
-            <h1 className='w-full text-orange-600 text-8xl font-extralight py-28 ps-5'>Projects</h1>
+            <RevealAnimation delay={0.5} width='100%'>
+                <h1 className='w-full text-orange-600 text-8xl font-extralight py-28 ps-5'>Projects</h1>
+            </RevealAnimation>
             <div className='flex flex-col gap-5 mx-5 pb-10 z-10'>
                 {projectPairs.map((pair, rowIdx) => (
                     <div key={rowIdx} className="flex w-full gap-5">
