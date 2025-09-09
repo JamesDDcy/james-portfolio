@@ -19,7 +19,7 @@ const SocialsButtons = () => {
 
             <RevealAnimation delay={0.5} y={-75}>
                 <a href="https://www.instagram.com/jdanieldcy" target="_blank" className="group">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="0.85em"
+                    <svg xmlns="http://www.w3.org/2000/svg" height="0.80em"
                         className="fill-white group-hover:fill-orange-600 transition duration-300 mx-3"
                         viewBox="0 0 448 512">
                         <path
