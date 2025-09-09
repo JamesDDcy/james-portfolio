@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 export default function SplineScene() {
     const [imgUrl, setImgUrl] = useState("");
+    const [loaded, setLoaded] = useState(false);
     // ref - craetes a ponter to a file. It does not contain the file itself or its URL
     // getDownloadURL retrieves a publicly accessible URL for a file stored in Firebase Storage
     useEffect(() => {
@@ -15,7 +16,12 @@ export default function SplineScene() {
 
     return (
         <div className='spline-bg'>
-            {imgUrl && <img src={imgUrl} alt="Spline background" />}
+            {imgUrl && <img
+                src={imgUrl}
+                alt="Spline background"
+                onLoad={() => setLoaded(true)}
+                className={`transition-opacity duration-2000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+            />};
         </div>
     );
 }
