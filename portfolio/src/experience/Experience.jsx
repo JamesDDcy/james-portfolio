@@ -46,26 +46,25 @@ const Experience = () => {
         <>
             <div className='grid justify-items-center relative'>
                 <RevealAnimation delay={0.5} width='100%'>
-                    <h1 className='w-full text-orange-600 text-8xl font-extralight py-28 ps-5'>Experience</h1>
+                    <h1 className='w-full text-orange-600 font-extralight text-6xl py-15 sm:text-8xl sm:py-28 ps-5'>Experience</h1>
                 </RevealAnimation>
 
-
-                <div className='absolute z-[-10] top-52'>
+                <div className='absolute z-[-10] top-52 w-[1980px]'>
                     {expBackground && <img className='opacity-30' style={{ transition: 'transform 0.5s', transform: `scale(${zoom})` }} src={expBackground} alt="background" />}
                 </div>
 
                 <div className='relative h-full w-4/5 flex flex-col'>
                     <RevealAnimation delay={1}>
-                        <div className='grid grid-cols-6 gap-20'>
+                        <div className='grid gap-15 xl:grid-cols-6 xl:gap-20'>
                             {
                                 expYears.map((year) => (
                                     // We need to use React.Fagment to be able to add a key since every element in a .map function should have a key
                                     // it helps react to efficiently identify and update elements
                                     <React.Fragment key={year}>
-                                        <div className='col-span-2 flex justify-end items-start'>
+                                        <div className='hidden xl:col-span-2 xl:flex xl:justify-end xl:items-start'>
                                             <h1 className='text-9xl font-extralight'>{year}</h1>
                                         </div>
-                                        <div className='col-span-4 flex flex-col justify-center items-center gap-20'>
+                                        <div className='xl:col-span-4 xl:gap-20 gap-15 flex flex-col justify-center items-center'>
                                             {
                                                 expInfo
                                                     .filter(exp => {
