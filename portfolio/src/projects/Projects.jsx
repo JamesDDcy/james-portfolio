@@ -33,22 +33,22 @@ const Projects = () => {
     return (
         <div id="projects">
             <RevealAnimation delay={0.5} width='100%'>
-                <h1 className='w-full text-orange-600 text-8xl font-extralight py-28 ps-5'>Projects</h1>
+                <h1 className='w-full text-orange-600 text-6xl sm:text-8xl font-extralight py-28 ps-5'>Projects</h1>
             </RevealAnimation>
             <div className='flex flex-col gap-5 mx-5 pb-10 z-10'>
                 {projectPairs.map((pair, rowIdx) => (
-                    <div key={rowIdx} className="flex w-full gap-5">
+                    <div key={rowIdx} className="md:flex w-full gap-5">
                         {pair.length === 1 ? (
                             <div className="w-full"><ProjectPanel {...pair[0]} /></div>
                         ) : rowIdx % 2 === 0 ? (
                             <>
-                                <div className="w-2/5"><ProjectPanel {...pair[0]} /></div>
-                                <div className="w-3/5"><ProjectPanel {...pair[1]} /></div>
+                                <div className="md:w-2/5 mb-5 md:mb-0"><ProjectPanel {...pair[0]} /></div>
+                                <div className="md:w-3/5"><ProjectPanel {...pair[1]} /></div>
                             </>
                         ) : (
                             <>
-                                <div className="w-3/5"><ProjectPanel {...pair[0]} /></div>
-                                <div className="w-2/5"><ProjectPanel {...pair[1]} /></div>
+                                <div className="md:w-3/5 mb-5 md:mb-0"><ProjectPanel {...pair[0]} /></div>
+                                <div className="md:w-2/5"><ProjectPanel {...pair[1]} /></div>
                             </>
                         )}
                     </div>
