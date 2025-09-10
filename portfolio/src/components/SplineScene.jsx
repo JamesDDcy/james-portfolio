@@ -20,7 +20,7 @@ export default function SplineScene() {
                 src={imgUrl}
                 alt="Spline background"
                 onLoad={() => setLoaded(true)}
-                className={`transition-opacity duration-2000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+                className={`transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}
             />};
         </div>
     );
